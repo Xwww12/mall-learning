@@ -55,7 +55,7 @@ public class Generator {
                         // 指定输出目录。如果指定，Windows生成至D盘根目录下，Linux or MAC 生成至 /tmp 目录下。
                         .outputDir(packagePath)
                         // 开启swagger2.注释掉则默认关闭。
-                        // .enableSwagger()
+                        .enableSwagger()
                         // 指定时间策略。
                         .dateType(DateType.TIME_PACK)
                         // 注释时间策略。
