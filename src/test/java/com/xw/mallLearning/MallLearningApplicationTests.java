@@ -1,4 +1,4 @@
-package com.xw.malllearning;
+package com.xw.mallLearning;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
