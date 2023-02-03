@@ -35,11 +35,11 @@
             <artifactId>spring-boot-starter-test</artifactId>
         </dependency>
         <!--Mybatis分页插件-->
-        <dependency>
-            <groupId>com.github.pagehelper</groupId>
-            <artifactId>pagehelper-spring-boot-starter</artifactId>
-            <version>1.2.10</version>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.github.pagehelper</groupId>-->
+<!--            <artifactId>pagehelper-spring-boot-starter</artifactId>-->
+<!--            <version>1.2.10</version>-->
+<!--        </dependency>-->
         <!--druid连接池-->
         <dependency>
             <groupId>com.alibaba</groupId>

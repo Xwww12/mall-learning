@@ -1,6 +1,5 @@
 package com.xw.mallLearning.controller;
 
-import com.xw.mallLearning.common.api.CommonPage;
 import com.xw.mallLearning.common.api.CommonResult;
 import com.xw.mallLearning.generator.mbg.entity.PmsBrand;
 import com.xw.mallLearning.service.PmsBrandService;
@@ -31,10 +30,9 @@ public class PmsBrandController {
     }
 
     @PutMapping("/update/{id}")
-    public CommonResult updateBrand(@PathVariable("id") Long id,
-                                    @RequestBody PmsBrand pmsBrandDto,
+    public CommonResult updateBrand(@RequestBody PmsBrand pmsBrandDto,
                                     BindingResult result) {
-        return pmsBrandService.updateBrand(id, pmsBrandDto, result);
+        return pmsBrandService.updateBrand(pmsBrandDto, result);
     }
 
     @DeleteMapping("/delete/{id}")
@@ -43,7 +41,7 @@ public class PmsBrandController {
     }
 
     @GetMapping("/list")
-    public CommonResult<CommonPage<PmsBrand>> listBrand(@RequestParam(value = "current", defaultValue = "1") Integer current,
+    public CommonResult<List<PmsBrand>> listBrand(@RequestParam(value = "current", defaultValue = "1") Integer current,
                                                         @RequestParam(value = "limit", defaultValue = "3") Integer limit) {
         return pmsBrandService.listBrand(current, limit);
     }
