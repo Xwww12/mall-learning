@@ -1,14 +1,36 @@
 server:
   port: 8080
 spring:
+  mvc:
+    pathmatch:
+      matching-strategy: ANT_PATH_MATCHER
   datasource:
     url: jdbc:mysql://localhost:3306/mall?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai
     username: root
     password: 123456
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    password: 123456
+    # 默认使用lettuce连接池，要使用jedis连接池需要导入jedis依赖
+    lettuce:
+      pool:
+        max-active: 8
+        max-idle: 8
+        min-idle: 0
+        max-wait: 3000ms
 
 mybatis:
   mapper-locations:
     - classpath:mapper/*.xml
     - classpath*:com/**/mapper/*.xml
 
-
+# 自定义redis key
+redis:
+  key:
+    prefix:
+      # 验证码前缀
+      authCode: "portal:authCode:"
+    expire:
+      # 验证码超时时间
+      authCode: 120

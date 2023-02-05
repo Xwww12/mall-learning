@@ -35,7 +35,8 @@ public class Generator {
     protected static void simpleGenerator() {
         // 添加需要自动生成代码的表名, 为空则生成所有表对应代码
         List<String> tables = new ArrayList<>();
-        tables.add("pms_brand");
+        // tables.add("pms_brand");
+        tables.add("ums_member");
 
         // 包路径
         String packagePath = PROJECT_ROOT_PATH + "/" + PROJECT_NAME + "/src/main/java";
