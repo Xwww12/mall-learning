@@ -5,6 +5,7 @@ import com.xw.mallLearning.generator.mbg.entity.PmsBrand;
 import com.xw.mallLearning.service.PmsBrandService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
@@ -22,18 +23,21 @@ public class PmsBrandController {
     @Resource
     private PmsBrandService pmsBrandService;
 
+    @PreAuthorize("hasAuthority('pms:brand:read')")
     @ApiOperation("获取所有品牌列表")
     @GetMapping("/listAll")
     public CommonResult<List<PmsBrand>> getBrandList() {
         return pmsBrandService.getBrandList();
     }
 
+    @PreAuthorize("hasAuthority('pms:brand:create')")
     @ApiOperation("添加品牌")
     @PostMapping("/create")
     public CommonResult createBrand(@RequestBody PmsBrand pmsBrand) {
         return pmsBrandService.createBrand(pmsBrand);
     }
 
+    @PreAuthorize("hasAuthority('pms:brand:update')")
     @ApiOperation("更新指定id品牌信息")
     @PutMapping("/update/{id}")
     public CommonResult updateBrand(@RequestBody PmsBrand pmsBrandDto,
@@ -41,12 +45,14 @@ public class PmsBrandController {
         return pmsBrandService.updateBrand(pmsBrandDto, result);
     }
 
+    @PreAuthorize("hasAuthority('pms:brand:delete')")
     @ApiOperation("删除指定id的品牌")
     @DeleteMapping("/delete/{id}")
     public CommonResult deleteBrand(@PathVariable("id") Long id) {
         return pmsBrandService.deleteBrand(id);
     }
 
+    @PreAuthorize("hasAuthority('pms:brand:read')")
     @ApiOperation("分页查询品牌列表")
     @GetMapping("/list")
     public CommonResult<List<PmsBrand>> listBrand(@RequestParam(value = "current", defaultValue = "1") Integer current,
@@ -54,6 +60,7 @@ public class PmsBrandController {
         return pmsBrandService.listBrand(current, limit);
     }
 
+    @PreAuthorize("hasAuthority('pms:brand:read')")
     @ApiOperation("获取指定id的品牌详情")
     @GetMapping("/{id}")
     public CommonResult<PmsBrand> brand(@PathVariable("id") Long id) {

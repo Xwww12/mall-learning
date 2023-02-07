@@ -36,7 +36,13 @@ public class Generator {
         // 添加需要自动生成代码的表名, 为空则生成所有表对应代码
         List<String> tables = new ArrayList<>();
         // tables.add("pms_brand");
-        tables.add("ums_member");
+        // tables.add("ums_member");
+        // tables.add("ums_admin");
+        // tables.add("ums_role");
+        // tables.add("ums_permission");
+        // tables.add("ums_admin_permission_relation");
+        // tables.add("ums_admin_role_relation");
+        // tables.add("ums_role_permission_relation");
 
         // 包路径
         String packagePath = PROJECT_ROOT_PATH + "/" + PROJECT_NAME + "/src/main/java";
