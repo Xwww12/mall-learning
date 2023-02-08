@@ -7,7 +7,6 @@ import com.xw.mallLearning.dto.AdminUserDetails;
 import com.xw.mallLearning.generator.mbg.entity.UmsAdmin;
 import com.xw.mallLearning.generator.mbg.entity.UmsPermission;
 import com.xw.mallLearning.service.IUmsAdminService;
-import com.xw.mallLearning.service.impl.UmsAdminServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -34,7 +33,7 @@ import java.util.List;
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-    @Lazy
+    @Lazy   // 防止嵌套
     @Autowired
     private IUmsAdminService adminService;
     @Resource
