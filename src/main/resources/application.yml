@@ -25,6 +25,16 @@ spring:
     #password: 123456 # 密码
     connection-timeout: 10s # 连接超时时间（默认1s）
     socket-timeout: 30s # 数据读取超时时间（默认30s）
+  data:
+    mongodb:
+      # 连接地址 端口号 连接的数据库
+      uri: mongodb://127.0.0.1:27017/mall-port
+  rabbitmq:
+    host: localhost # rabbitmq的连接地址
+    port: 5672 # rabbitmq的连接端口号
+    virtual-host: /mall # rabbitmq的虚拟host
+    username: mall # rabbitmq的用户名
+    password: mall # rabbitmq的密码
 
 mybatis:
   mapper-locations:
